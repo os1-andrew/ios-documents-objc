@@ -14,6 +14,8 @@
 		101B555F216562DE000FAF60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B555E216562DE000FAF60 /* main.m */; };
 		101B5568216564CF000FAF60 /* DocumentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B5567216564CF000FAF60 /* DocumentsTableViewController.m */; };
 		101B556C2165685F000FAF60 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B556B2165685F000FAF60 /* DetailViewController.m */; };
+		101B556F21656AC7000FAF60 /* NSString+WordCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B556E21656AC7000FAF60 /* NSString+WordCount.m */; };
+		101B557321656EDD000FAF60 /* AELDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B557221656EDD000FAF60 /* AELDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		101B5567216564CF000FAF60 /* DocumentsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentsTableViewController.m; sourceTree = "<group>"; };
 		101B556A2165685F000FAF60 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		101B556B2165685F000FAF60 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		101B556D21656AC7000FAF60 /* NSString+WordCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WordCount.h"; sourceTree = "<group>"; };
+		101B556E21656AC7000FAF60 /* NSString+WordCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WordCount.m"; sourceTree = "<group>"; };
+		101B557121656EDD000FAF60 /* AELDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AELDocument.h; sourceTree = "<group>"; };
+		101B557221656EDD000FAF60 /* AELDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AELDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,9 @@
 				101B554F216562DC000FAF60 /* AppDelegate.h */,
 				101B5550216562DC000FAF60 /* AppDelegate.m */,
 				101B5555216562DC000FAF60 /* Main.storyboard */,
+				101B557421656F29000FAF60 /* Model */,
 				101B5569216564DA000FAF60 /* View Controller */,
+				101B557021656ACC000FAF60 /* Category */,
 				101B5565216562F9000FAF60 /* Resources */,
 			);
 			path = Documents;
@@ -90,6 +98,24 @@
 				101B556B2165685F000FAF60 /* DetailViewController.m */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		101B557021656ACC000FAF60 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				101B556D21656AC7000FAF60 /* NSString+WordCount.h */,
+				101B556E21656AC7000FAF60 /* NSString+WordCount.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		101B557421656F29000FAF60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				101B557121656EDD000FAF60 /* AELDocument.h */,
+				101B557221656EDD000FAF60 /* AELDocument.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +144,7 @@
 		101B5544216562DC000FAF60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = AEL;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Andrew Liao";
 				TargetAttributes = {
@@ -162,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101B556F21656AC7000FAF60 /* NSString+WordCount.m in Sources */,
 				101B5568216564CF000FAF60 /* DocumentsTableViewController.m in Sources */,
 				101B555F216562DE000FAF60 /* main.m in Sources */,
+				101B557321656EDD000FAF60 /* AELDocument.m in Sources */,
 				101B5551216562DC000FAF60 /* AppDelegate.m in Sources */,
 				101B556C2165685F000FAF60 /* DetailViewController.m in Sources */,
 			);
