@@ -7,6 +7,9 @@
 //
 
 #import "DetailViewController.h"
+#import "NSString+WordCount.h"
+#import "AELDocument.h"
+#import "AELDocumentController.h"
 
 @interface DetailViewController ()
 
@@ -16,19 +19,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[self documentTextView] setDelegate: self];
+    [self updateViews];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)textViewDidChange:(UITextView *)textView
+{
+    int count = [[[self documentTextView] text] wordCount];
+    NSString *wordCountString = [NSString stringWithFormat:@"%i", count];
+    
+    NSString *wordLabelText = [NSString stringWithFormat:@"%@ %@", @"Word Count:", wordCountString];
+    [[self wordCount] setText: wordLabelText];
 }
-*/
+
+-(void) updateViews{
+    if ([self document]){
+        //if document is not nil
+        [self setTitle: @"View Document"];
+        
+        int count = [[[self documentTextView] text] wordCount];
+        NSString *wordCountString = [NSString stringWithFormat:@"%i", count];
+        NSString *wordLabelText = [NSString stringWithFormat:@"%@ %@", @"Word Count:", wordCountString];
+        [[self wordCount] setText: wordLabelText];
+        
+        [[self nameField] setText: [[self document] title]];
+        [[self documentTextView] setText:[[self document] text]];
+    } else {
+        [self setTitle: @"Add Document"];
+        NSString *wordLabelText = [NSString stringWithFormat:@"%@", @"Word Count: 0"];
+        [[self wordCount] setText: wordLabelText];
+    }
+}
 
 - (IBAction)save:(UIBarButtonItem *)sender {
+    NSString *documentText = [[self documentTextView] text];
+    NSString *documentName = [[self nameField] text];
+    
+    if([self document]){
+        //if document is not nil
+        [[self documentController] updateDocumentFor: [self document] title:documentName text:documentText];
+    } else {
+        [[self documentController] createDocumentWith: documentName text:documentText];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

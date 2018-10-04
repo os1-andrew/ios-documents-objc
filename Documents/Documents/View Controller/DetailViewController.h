@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AELDocument;
+@class AELDocumentController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UITextViewDelegate>
 
 - (IBAction)save:(UIBarButtonItem *)sender;
+
+@property AELDocument *document;
+@property AELDocumentController *documentController;
 
 @property (weak, nonatomic) IBOutlet UILabel *wordCount;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
