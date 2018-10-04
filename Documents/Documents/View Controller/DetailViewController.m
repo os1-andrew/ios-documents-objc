@@ -51,7 +51,7 @@
     }
 }
 
-- (IBAction)save:(UIBarButtonItem *)sender {
+- (IBAction)save:(id *)sender {
     NSString *documentText = [[self documentTextView] text];
     NSString *documentName = [[self nameField] text];
     
@@ -62,6 +62,6 @@
         [[self documentController] createDocumentWith: documentName text:documentText];
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 @end

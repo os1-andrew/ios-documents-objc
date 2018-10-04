@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : UIViewController <UITextViewDelegate>
 
-- (IBAction)save:(UIBarButtonItem *)sender;
+- (IBAction)save:(id *)sender;
 
 @property AELDocument *document;
 @property AELDocumentController *documentController;
